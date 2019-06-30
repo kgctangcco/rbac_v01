@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-public class PropertyFactory {
+public abstract class PropertyFactory {
 	private static Map<String, Object> map = new HashMap<String, Object>();
 
 	@Test
@@ -23,6 +23,7 @@ public class PropertyFactory {
 		}
 		Bean bean = PropertyUtil.getBean(id);
 		try {
+			Class<?> clazz = Class.forName(bean.getClassName());
 			Object obj = Class.forName(bean.getClassName()).getDeclaredConstructor().newInstance();
 			map.put(id, obj);
 			if (bean.getPropertyList() != null && bean.getPropertyList().size() > 0) {

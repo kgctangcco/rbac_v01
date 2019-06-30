@@ -7,7 +7,7 @@ import cn.kgc.tangcco.user.entity.User;
 
 public interface UserDao {
 	/**
-	   * 登录
+	 * 登录
 	 * @param account	账号
 	 * @param password	密码
 	 * @return			用户对象
